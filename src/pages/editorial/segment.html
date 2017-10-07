@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>Editorial</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div padding>
+    <ion-segment [(ngModel)]="editorial">
+      <ion-segment-button value="indian">
+        Indian
+      </ion-segment-button>
+      <ion-segment-button value="international">
+        International
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="editorial">
+    <ion-list *ngSwitchCase="'indian'">
+       <button ion-item *ngFor="let item of indians" (click)="itemSelected(item.url)">
+          {{item.name}}
+       </button>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'international'">
+      <button ion-item *ngFor="let item of international" (click)="itemSelected(item.url)">
+          {{item.name}}
+      </button>
+    </ion-list>
+  </div>
+</ion-content>`
